@@ -26,17 +26,11 @@
       z-index: 0;
     }
 
-    /* Gradient scrim — darker on the left where text lives */
+    /* Centered scrim — uniform dark tint across the full page */
     .scrim {
       position: fixed;
       inset: 0;
-      background:
-        linear-gradient(to right,
-          rgba(5, 20, 55, 0.68) 0%,
-          rgba(5, 20, 55, 0.42) 45%,
-          rgba(5, 20, 55, 0.10) 75%,
-          transparent 100%
-        );
+      background: rgba(5, 20, 55, 0.50);
       z-index: 1;
     }
 
@@ -44,8 +38,8 @@
       position: relative;
       z-index: 2;
       max-width: 520px;
-      margin: 0 0 0 9vw;
-      padding: 72px 0 80px;
+      margin: 0 auto;
+      padding: 72px 24px 80px;
     }
 
     h1 {
@@ -58,13 +52,12 @@
       margin-bottom: 8px;
     }
 
-    /* Illustration sits directly under the heading, bleeds into scene */
     .portrait {
       width: 260px;
       display: block;
       margin-bottom: 32px;
-      /* No border, no radius — transparent PNG blends into background */
-      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.25));
+      opacity: 0.82;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.2));
     }
 
     p {
