@@ -4,55 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sabby Singh</title>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      /* Subtle warm-to-cool gradient — nods to RewardWise without overwhelming */
-      background: linear-gradient(145deg, #fdf6ee 0%, #eef7f9 60%, #e6f4f1 100%);
       min-height: 100vh;
-      color: #1a1a1a;
+      background: linear-gradient(to bottom, #fed7aa, #a5f3fc, #22d3ee);
+      position: relative;
+    }
+
+    /* RewardWise beach photo */
+    .bg {
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    /* Gradient scrim — darker on the left where text lives */
+    .scrim {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(to right,
+          rgba(5, 20, 55, 0.68) 0%,
+          rgba(5, 20, 55, 0.42) 45%,
+          rgba(5, 20, 55, 0.10) 75%,
+          transparent 100%
+        );
+      z-index: 1;
     }
 
     .page {
-      max-width: 580px;
-      margin: 0 auto 0 10vw;
-      padding: 72px 24px 80px;
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
+      margin: 0 0 0 9vw;
+      padding: 72px 0 80px;
     }
 
     h1 {
       font-family: 'Caveat', cursive;
-      font-size: 72px;
+      font-size: 80px;
       font-weight: 600;
-      color: #111827;
-      line-height: 1.05;
-      margin-bottom: 36px;
+      color: #ffffff;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.3);
+      line-height: 1.0;
+      margin-bottom: 8px;
     }
 
+    /* Illustration sits directly under the heading, bleeds into scene */
     .portrait {
-      width: 240px;
+      width: 260px;
       display: block;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
+      /* No border, no radius — transparent PNG blends into background */
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.25));
     }
 
     p {
       font-size: 15.5px;
-      line-height: 1.72;
-      color: #374151;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
       margin-bottom: 18px;
     }
 
     a {
-      color: #0d9488;
+      color: #ffffff;
       text-decoration: underline;
-      text-underline-offset: 2px;
-      text-decoration-color: rgba(13, 148, 136, 0.35);
+      text-decoration-color: rgba(255,255,255,0.45);
+      text-underline-offset: 3px;
     }
-    a:hover {
-      text-decoration-color: #0d9488;
-    }
+    a:hover { text-decoration-color: #ffffff; }
 
     .section { margin-bottom: 28px; }
 
@@ -60,7 +89,7 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 11px;
     }
 
     li {
@@ -72,7 +101,7 @@
     .bullet {
       width: 8px;
       height: 8px;
-      background-color: #0d9488;
+      background-color: #34d399;
       border-radius: 2px;
       flex-shrink: 0;
       margin-top: 6px;
@@ -80,12 +109,16 @@
 
     .footer-note {
       font-size: 12px;
-      color: #9ca3af;
+      color: rgba(255,255,255,0.3);
+      text-shadow: none;
       margin-top: 40px;
     }
   </style>
 </head>
 <body>
+  <div class="bg"></div>
+  <div class="scrim"></div>
+
   <div class="page">
 
     <h1>Hello, I'm Sabby.</h1>
