@@ -3,76 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello, I'm Sabby.</title>
+  <title>Sabby Singh</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background-color: #e8e8e8;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      /* RewardWise gradient base */
+      background: linear-gradient(to bottom, #fed7aa, #a5f3fc, #22d3ee);
+      position: relative;
     }
+
+    /* Maldives photo overlay — same technique as RewardWise (opacity: 0.6) */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.65;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      margin: 0 0 0 10vw;
+      padding: 72px 0 80px;
+    }
+
     h1 {
       font-family: 'Caveat', cursive;
+      font-size: 52px;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+      margin-bottom: 36px;
+      line-height: 1.1;
     }
+
+    p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    }
+
     a {
+      color: #ffffff;
       text-decoration: underline;
-      text-decoration-color: #c0392b;
-      text-underline-offset: 2px;
-      color: inherit;
+      text-decoration-color: rgba(255,255,255,0.5);
+      text-underline-offset: 3px;
     }
     a:hover {
-      color: #c0392b;
+      text-decoration-color: #ffffff;
+    }
+
+    .bullet {
+      width: 8px;
+      height: 8px;
+      background-color: #34d399;
+      border-radius: 2px;
+      flex-shrink: 0;
+      margin-top: 5px;
+      display: inline-block;
+    }
+
+    img.portrait {
+      width: 200px;
+      height: 242px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 6px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    .footer-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      text-shadow: none;
+      margin-top: 36px;
     }
   </style>
 </head>
-<body class="min-h-screen py-16">
-  <div style="max-width: 500px; margin: 0 0 0 120px;">
+<body>
+  <div class="page">
 
-    <!-- Heading -->
-    <h1 style="font-size: 44px; font-weight: 600; margin-bottom: 32px; line-height: 1.1;">Hello, I'm Sabby.</h1>
+    <h1>Hello, I'm Sabby.</h1>
 
-    <!-- Portrait -->
+    <div style="margin-bottom: 36px;">
+      <img class="portrait" src="./portrait.jpg" alt="Sabby" />
+    </div>
+
     <div style="margin-bottom: 32px;">
-      <!-- Save your headshot as portrait.jpg in this folder -->
-      <img
-        src="./portrait.jpg"
-        alt="Sabby"
-        style="width: 210px; height: 255px; object-fit: cover; object-position: center top;"
-      />
+      <p style="margin-bottom: 16px;">I'm a product leader with 14 years of experience at Amazon, Chewy, and Vistaprint. I build products around delivery experience, transportation, and fulfillment at scale.</p>
+      <p>I hold an M.S. from MIT where I studied platform thinking and marketplace strategies for logistics digitization. I also build side projects like <a href="https://rewardwise-app-v2.vercel.app/" target="_blank">RewardWise</a>. Outside of work I tend an outdoor fishpond, follow Sumo wrestling, and raise chickens.</p>
     </div>
 
-    <!-- Bio paragraphs -->
-    <div style="font-size: 15px; line-height: 1.65; color: #1a1a1a; margin-bottom: 28px;">
-      <p style="margin-bottom: 16px;">I'm a product leader with 14+ years of experience building AI-driven products at Amazon, Chewy, and Vistaprint. I hold an M.S. from MIT in System Design and Management.</p>
-      <p>I specialize in <a href="#">GenAI</a> and <a href="#">multi-agent workflows</a> — turning complex systems into experiences customers love. I also build side projects like <a href="https://rewardwise-app-v2.vercel.app/" target="_blank">RewardWise</a>, a travel rewards optimizer. Outside of work I tend an outdoor fishpond, follow Sumo wrestling, and raise chickens.</p>
-    </div>
-
-    <!-- Recent Posts -->
-    <div style="font-size: 15px; color: #1a1a1a; margin-bottom: 28px;">
-      <p style="margin-bottom: 12px;">Here are my 3 most recent posts:</p>
-      <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+    <div style="margin-bottom: 32px;">
+      <p style="margin-bottom: 14px;">A few things I've built or written:</p>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 11px;">
         <li style="display: flex; align-items: flex-start; gap: 10px;">
-          <span style="width: 10px; height: 10px; background-color: #b91c1c; flex-shrink: 0; margin-top: 4px; display: inline-block;"></span>
-          <a href="https://rewardwise-app-v2.vercel.app/" target="_blank" style="line-height: 1.5;">RewardWise v2 — a travel rewards optimization platform that automatically maximizes your wallet benefits</a>
+          <span class="bullet"></span>
+          <a href="https://rewardwise-app-v2.vercel.app/" target="_blank" style="font-size: 15px; line-height: 1.55;">RewardWise v2 — a travel rewards platform that automatically maximizes your wallet benefits</a>
         </li>
         <li style="display: flex; align-items: flex-start; gap: 10px;">
-          <span style="width: 10px; height: 10px; background-color: #b91c1c; flex-shrink: 0; margin-top: 4px; display: inline-block;"></span>
-          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7411130534543888384/" target="_blank" style="line-height: 1.5;">How I Built a Multi-Agent AI System to Train for My Annual Half-Marathon</a>
+          <span class="bullet"></span>
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7411130534543888384/" target="_blank" style="font-size: 15px; line-height: 1.55;">How I Built a Multi-Agent AI System to Train for My Annual Half-Marathon</a>
         </li>
         <li style="display: flex; align-items: flex-start; gap: 10px;">
-          <span style="width: 10px; height: 10px; background-color: #b91c1c; flex-shrink: 0; margin-top: 4px; display: inline-block;"></span>
-          <a href="#" style="line-height: 1.5;">How I Built an Outdoor Koi Pond from Scratch in My Backyard</a>
+          <span class="bullet"></span>
+          <a href="#" style="font-size: 15px; line-height: 1.55;">How I Built an Outdoor Koi Pond from Scratch in My Backyard</a>
         </li>
       </ul>
     </div>
 
-    <!-- Social Links -->
-    <p style="font-size: 15px; color: #1a1a1a; margin-bottom: 28px;">
-      You can follow me on <a href="https://www.linkedin.com/in/sarabjitnagi/" target="_blank">LinkedIn</a> and <a href="https://github.com/SabbyNagi" target="_blank">GitHub</a>.
-    </p>
+    <p>Find me on <a href="https://www.linkedin.com/in/sarabjitnagi/" target="_blank">LinkedIn</a> and <a href="https://github.com/SabbyNagi" target="_blank">GitHub</a>.</p>
 
-    <!-- Footer note -->
-    <p style="font-size: 13px; color: #aaaaaa;">I love Clawd 🐾</p>
+    <p class="footer-note">Built with Claude Code 🤖</p>
 
   </div>
 </body>
