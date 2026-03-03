@@ -199,7 +199,12 @@
 
     <p>Interested in reading the full thesis? <a href="https://www.linkedin.com/in/sarabjitnagi/" target="_blank">Reach out on LinkedIn</a> to request a copy.</p>
 
-    <p class="footer-note">Built with Claude Code 🤖</p>
+    <p class="footer-note"><span id="gc-count">—</span> views · Built with Claude Code 🤖</p>
   </div>
+  <script>
+    fetch('https://sabbynagi.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+      .then(r => r.json()).then(d => { document.getElementById('gc-count').textContent = d.count; }).catch(() => {});
+  </script>
+  <script data-goatcounter="https://sabbynagi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

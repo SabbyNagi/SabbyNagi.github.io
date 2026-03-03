@@ -146,7 +146,12 @@
 
     <p>The pond now holds its own. The fish are alert. The water stays clear. Guests still stop and look every time they walk in.</p>
 
-    <p class="footer-note">Built with Claude Code 🤖</p>
+    <p class="footer-note"><span id="gc-count">—</span> views · Built with Claude Code 🤖</p>
   </div>
+  <script>
+    fetch('https://sabbynagi.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+      .then(r => r.json()).then(d => { document.getElementById('gc-count').textContent = d.count; }).catch(() => {});
+  </script>
+  <script data-goatcounter="https://sabbynagi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
