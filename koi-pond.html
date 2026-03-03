@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How I Built an Outdoor Goldfish Pond — Sabby Singh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      padding: 16px 24px;
+    }
+
+    .nav-inner {
+      display: flex;
+      gap: 4px;
+      background: rgba(5, 20, 55, 0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      padding: 6px;
+    }
+
+    .nav a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav a:hover { color: #ffffff; background: rgba(255,255,255,0.08); }
+    .nav a.active { color: #ffffff; background: rgba(52,211,153,0.18); }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #fed7aa, #a5f3fc, #22d3ee);
+      position: relative;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    .scrim {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 20, 55, 0.38);
+      z-index: 1;
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 32px;
+      color: #34d399;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+    }
+    .back:hover { text-decoration: underline; }
+
+    h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 52px;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      line-height: 1.1;
+      margin-bottom: 28px;
+    }
+
+    .pond-img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: rgba(224, 242, 254, 0.92);
+      margin-bottom: 18px;
+    }
+
+    .footer-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.28);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="scrim"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="./index.html">Home</a>
+      <a href="./projects.html" class="active">Projects</a>
+      <a href="./thesis.html">MIT Thesis</a>
+    </div>
+  </nav>
+
+  <div class="page">
+    <a class="back" href="./projects.html">← Back to Projects</a>
+
+    <h1>How I Built an Outdoor Goldfish Pond from Scratch in My Backyard</h1>
+
+    <img class="pond-img" src="./koi-pond.jpeg" alt="Goldfish pond in Sabby's backyard" />
+
+    <p>When we bought the house, the pond was broken. Four goldfish were still alive in it. They hadn't eaten in months. We kept them.</p>
+
+    <p>The pond sits right at the front door. Every delivery driver, every guest walks past it. So my spouse and I tore it out and rebuilt it over one weekend. Shovels, liner, rocks, filtration. No contractor.</p>
+
+    <p>That weekend taught me something. I can build things. Not just product roadmaps — actual physical things with my hands. This pond is one of the things I am most proud of.</p>
+
+    <p>We have lost around 20 fish over four years. Blue Herons are patient hunters in Washington. Raccoons are chaotic ones. They used to flip the water plants and scatter rocks across the yard. We built hiding spots inside the pond. We weighted every plant container. We strung nets.</p>
+
+    <p>The pond now holds its own. The fish are alert. The water stays clear. Guests still stop and look every time they walk in.</p>
+
+    <p class="footer-note">Built with Claude Code 🤖</p>
+  </div>
+</body>
+</html>
