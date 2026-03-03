@@ -76,22 +76,40 @@
       padding: 100px 24px 80px;
     }
 
-    h1 {
-      font-family: 'Caveat', cursive;
-      font-size: 64px;
-      font-weight: 600;
-      color: #ffffff;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
-      line-height: 1.0;
-      margin-bottom: 8px;
-    }
-
     .label {
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: #34d399;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 52px;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      line-height: 1.1;
+      margin-bottom: 28px;
+    }
+
+    .meta {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .meta-row {
+      font-size: 13px;
+      color: rgba(224, 242, 254, 0.65);
+    }
+
+    .meta-row span {
+      color: rgba(224, 242, 254, 0.9);
     }
 
     p {
@@ -101,16 +119,37 @@
       margin-bottom: 18px;
     }
 
-    .coming-soon {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 10px 22px;
-      border: 1px solid rgba(52,211,153,0.35);
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #34d399;
+      margin-bottom: 10px;
+      margin-top: 28px;
+    }
+
+    .topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .topic {
+      padding: 5px 14px;
+      border: 1px solid rgba(52,211,153,0.3);
       border-radius: 50px;
       font-size: 13px;
-      color: #34d399;
-      letter-spacing: 0.05em;
+      color: rgba(224, 242, 254, 0.8);
     }
+
+    a {
+      color: #34d399;
+      text-decoration: underline;
+      text-decoration-color: rgba(52, 211, 153, 0.4);
+      text-underline-offset: 3px;
+    }
+    a:hover { text-decoration-color: #34d399; }
 
     .footer-note {
       font-size: 12px;
@@ -132,14 +171,31 @@
   </nav>
 
   <div class="page">
-    <div class="label">M.S. · MIT Sloan · 2013</div>
-    <h1>MIT Thesis</h1>
+    <div class="label">M.S. · MIT System Design & Management · 2020</div>
+    <h1>Ecommerce Platforms and the Business of Selling Groceries Online</h1>
 
-    <p>My graduate research at MIT focused on platform thinking and marketplace strategies for logistics digitization — how digital platforms restructure physical supply chains and create new coordination mechanisms between shippers, carriers, and customers.</p>
+    <div class="meta">
+      <div class="meta-row">Advisor: <span>Prof. Michael A. Cusumano</span></div>
+      <div class="meta-row">Title: <span>Sloan Management Review Distinguished Professor of Management</span></div>
+      <div class="meta-row">Program: <span>MIT System Design and Management (SDM)</span></div>
+    </div>
 
-    <p>Full content coming soon.</p>
+    <div class="section-label">Abstract</div>
+    <p>The business of selling fresh food to individual customers on an ecommerce platform is expected to be a $40 billion USD industry by 2023. The online marketplace faces various challenges — low profit margins, changing consumer habits, the onerous task of managing customer and delivery experience, and massive operational scale.</p>
+    <p>What can emerging or established fresh food ecommerce platforms learn from the Walmarts, Amazons, Alibabas, and JDs of the world? This thesis introduces and assesses the online grocery space in the US and China, evaluating platforms through the lens of platform thinking and growth strategy. It concludes by examining emergent trends, including the black swan impact of Covid-19 on the industry.</p>
 
-    <span class="coming-soon">Coming soon</span>
+    <div class="section-label">Topics</div>
+    <div class="topics">
+      <span class="topic">Platform thinking</span>
+      <span class="topic">Online grocery</span>
+      <span class="topic">Amazon</span>
+      <span class="topic">Walmart</span>
+      <span class="topic">Alibaba</span>
+      <span class="topic">JD.com</span>
+      <span class="topic">US &amp; China markets</span>
+      <span class="topic">Logistics</span>
+      <span class="topic">Growth strategy</span>
+    </div>
 
     <p class="footer-note">Built with Claude Code 🤖</p>
   </div>
