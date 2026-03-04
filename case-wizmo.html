@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where Is My Order (WIZMO) — Sabby Singh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      padding: 16px 24px;
+    }
+
+    .nav-inner {
+      display: flex;
+      gap: 4px;
+      background: rgba(5, 20, 55, 0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      padding: 6px;
+    }
+
+    .nav a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav a:hover { color: #ffffff; background: rgba(255,255,255,0.08); }
+    .nav a.active { color: #ffffff; background: rgba(52,211,153,0.18); }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #fed7aa, #a5f3fc, #22d3ee);
+      position: relative;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    .scrim {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 20, 55, 0.38);
+      z-index: 1;
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 32px;
+      color: #34d399;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+    }
+    .back:hover { text-decoration: underline; }
+
+    h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 48px;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: rgba(224, 242, 254, 0.5);
+      margin-bottom: 28px;
+    }
+
+    p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: rgba(224, 242, 254, 0.92);
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 32px;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 36px;
+      margin-bottom: 14px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .metric {
+      background: rgba(5, 20, 55, 0.45);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .metric-value {
+      font-family: 'Caveat', cursive;
+      font-size: 36px;
+      font-weight: 600;
+      color: #34d399;
+      line-height: 1.1;
+    }
+
+    .metric-label {
+      font-size: 12px;
+      color: rgba(224, 242, 254, 0.6);
+      margin-top: 4px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 28px;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: rgba(224, 242, 254, 0.7);
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      border-radius: 50px;
+      padding: 5px 14px;
+    }
+
+    .footer-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.28);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="scrim"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="./index.html">Home</a>
+      <a href="./projects.html" class="active">Projects</a>
+      <a href="./thesis.html">MIT Thesis</a>
+    </div>
+  </nav>
+
+  <div class="page">
+    <a class="back" href="./projects.html">← Back to Projects</a>
+
+    <h1>"Where Is My Order?" — Built from Zero</h1>
+    <p class="meta">Chewy · Product Manager Technical, Fulfillment &amp; Transportation</p>
+
+    <div class="tag-row">
+      <span class="tag">0 → 1 Consumer Product</span>
+      <span class="tag">Customer Experience</span>
+      <span class="tag">Multi-Carrier Integration</span>
+    </div>
+
+    <h2>The Challenge</h2>
+    <p>Chewy had no shipment tracking experience. Customers who ordered pet food, medications, and supplies had no way to see where their order was after it shipped. The only option was to call or chat with support — and "Where is my order?" was the single most common contact reason.</p>
+    <p>For a customer base that skews older and deeply attached to their pets, a late or missing delivery isn't an inconvenience. It's an emotional event. Pets depend on timely medication and food. Customers needed visibility, and support teams were drowning in volume they couldn't meaningfully resolve.</p>
+
+    <h2>The Approach</h2>
+    <p>I owned the delivery experience product portfolio: estimated delivery dates, shipment tracking, WIZMO, and address validation. For the tracking product, I started from zero.</p>
+    <p>I integrated three carrier APIs (UPS, FedEx, USPS) into a unified tracking experience that worked across Chewy's entire shipping footprint. The design prioritized clarity over complexity: customers needed to see where their order was and when it would arrive, not a stream of carrier scan events.</p>
+    <p>I designed the consumer-facing experience to surface the information that actually mattered — current status, expected arrival, and what to do if something went wrong — while abstracting away the carrier-specific noise underneath. The product launched as a pilot, then scaled to become a core feature of every Chewy order.</p>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-value">$2B+</div>
+        <div class="metric-label">Annual revenue impacted</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">-20%</div>
+        <div class="metric-label">Tracking contacts reduced</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">$5M</div>
+        <div class="metric-label">LTV uplift</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">$1.5M</div>
+        <div class="metric-label">Annual support cost savings</div>
+      </div>
+    </div>
+
+    <h2>Why It Mattered</h2>
+    <p>WIZMO went from nonexistent to a core consumer feature that every Chewy customer interacts with. Tracking-related contacts dropped 20% (100K to 80K per month), saving $1.5M annually in support costs. The LTV uplift from improved delivery confidence was $5M.</p>
+    <p>This was a lesson in building consumer products where the user's emotional state matters as much as the functional requirement. The technical challenge was carrier integration. The product challenge was understanding that a pet owner checking on their order at 10pm isn't looking for a tracking number — they're looking for reassurance.</p>
+    <p>I managed 2 PMs and owned the full delivery experience product suite supporting 99%+ order volume with 99% uptime SLA. The WIZMO experience became the foundation that the address validation, estimated delivery date, and shipment notification products were built on top of.</p>
+
+    <p class="footer-note"><span id="gc-count">—</span> views</p>
+  </div>
+  <script>
+    fetch('https://sabbynagi.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+      .then(r => r.json()).then(d => { document.getElementById('gc-count').textContent = d.count; }).catch(() => {});
+  </script>
+  <script data-goatcounter="https://sabbynagi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
