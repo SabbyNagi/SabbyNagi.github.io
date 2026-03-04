@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reschedule Optimization — Sabby Singh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      padding: 16px 24px;
+    }
+
+    .nav-inner {
+      display: flex;
+      gap: 4px;
+      background: rgba(5, 20, 55, 0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      padding: 6px;
+    }
+
+    .nav a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav a:hover { color: #ffffff; background: rgba(255,255,255,0.08); }
+    .nav a.active { color: #ffffff; background: rgba(52,211,153,0.18); }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #fed7aa, #a5f3fc, #22d3ee);
+      position: relative;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    .scrim {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 20, 55, 0.38);
+      z-index: 1;
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 32px;
+      color: #34d399;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+    }
+    .back:hover { text-decoration: underline; }
+
+    h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 48px;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: rgba(224, 242, 254, 0.5);
+      margin-bottom: 28px;
+    }
+
+    p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: rgba(224, 242, 254, 0.92);
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 32px;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 36px;
+      margin-bottom: 14px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .metric {
+      background: rgba(5, 20, 55, 0.45);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .metric-value {
+      font-family: 'Caveat', cursive;
+      font-size: 36px;
+      font-weight: 600;
+      color: #34d399;
+      line-height: 1.1;
+    }
+
+    .metric-label {
+      font-size: 12px;
+      color: rgba(224, 242, 254, 0.6);
+      margin-top: 4px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 28px;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: rgba(224, 242, 254, 0.7);
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      border-radius: 50px;
+      padding: 5px 14px;
+    }
+
+    .footer-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.28);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="scrim"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="./index.html">Home</a>
+      <a href="./projects.html" class="active">Projects</a>
+      <a href="./thesis.html">MIT Thesis</a>
+    </div>
+  </nav>
+
+  <div class="page">
+    <a class="back" href="./projects.html">← Back to Projects</a>
+
+    <h1>Reschedule Optimization &amp; ML Recommender</h1>
+    <p class="meta">Amazon, Supply Chain Optimization Tech · Sr. Product Manager Technical</p>
+
+    <div class="tag-row">
+      <span class="tag">Machine Learning</span>
+      <span class="tag">Operations</span>
+      <span class="tag">Regional Problem → Global Product</span>
+    </div>
+
+    <h2>The Challenge</h2>
+    <p>Southern California is one of Amazon's most critical logistics regions: near major ports, large population, dense fulfillment center footprint. Severe congestion was causing operations teams to unilaterally reschedule 8-10% of inbound delivery appointments. Only about 20% of those reschedules stuck.</p>
+    <p>The result was chaos. Carriers already in transit. Sellers holding freight with no notice. Extra costs, stockouts, and millions in lost value. Nobody had visibility into whether freight was in motion or what the shipment priority was before hitting "reschedule."</p>
+
+    <h2>The Approach</h2>
+    <p>I pulled six months of reschedule data across the SoCal network and organized a three-day Kaizen with directors from ops, transportation, tech, and planning. The key insight: operations was rescheduling blind.</p>
+    <p>I designed a handshake workflow requiring confirmation from the seller and carrier before any reschedule became effective. This ensured nobody moved freight that was already en route and that high-priority shipments stayed protected.</p>
+    <p>In parallel, I partnered with Data Science to ship an ML pre-planned appointment recommender trained on 100K historical appointments for top 50 sellers. The model learned which time slots had the highest probability of on-time completion given carrier patterns, FC capacity, and shipment characteristics.</p>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-value">$160M</div>
+        <div class="metric-label">Combined benefits</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">75%→98%</div>
+        <div class="metric-label">On-time delivery (ML)</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">4hr→2hr</div>
+        <div class="metric-label">Turnaround P90</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">-6%</div>
+        <div class="metric-label">Inventory errors</div>
+      </div>
+    </div>
+
+    <h2>Why It Mattered</h2>
+    <p>This started as a regional fire (SoCal congestion) and became a global product. The handshake workflow eliminated the single biggest source of supply chain friction in Amazon's inbound network. The ML recommender gave sellers confidence that the system was working for them, not against them.</p>
+    <p>The combination of operational workflow redesign and machine learning showed what happens when you treat logistics as a product problem, not just an ops problem. Both solutions scaled across the network.</p>
+
+    <p class="footer-note"><span id="gc-count">—</span> views</p>
+  </div>
+  <script>
+    fetch('https://sabbynagi.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+      .then(r => r.json()).then(d => { document.getElementById('gc-count').textContent = d.count; }).catch(() => {});
+  </script>
+  <script data-goatcounter="https://sabbynagi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

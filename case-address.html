@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Address Validation at Chewy — Sabby Singh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      padding: 16px 24px;
+    }
+
+    .nav-inner {
+      display: flex;
+      gap: 4px;
+      background: rgba(5, 20, 55, 0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      padding: 6px;
+    }
+
+    .nav a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav a:hover { color: #ffffff; background: rgba(255,255,255,0.08); }
+    .nav a.active { color: #ffffff; background: rgba(52,211,153,0.18); }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #fed7aa, #a5f3fc, #22d3ee);
+      position: relative;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    .scrim {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 20, 55, 0.38);
+      z-index: 1;
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 32px;
+      color: #34d399;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+    }
+    .back:hover { text-decoration: underline; }
+
+    h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 48px;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: rgba(224, 242, 254, 0.5);
+      margin-bottom: 28px;
+    }
+
+    p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: rgba(224, 242, 254, 0.92);
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 32px;
+      font-weight: 600;
+      color: #34d399;
+      margin-top: 36px;
+      margin-bottom: 14px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .metric {
+      background: rgba(5, 20, 55, 0.45);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .metric-value {
+      font-family: 'Caveat', cursive;
+      font-size: 36px;
+      font-weight: 600;
+      color: #34d399;
+      line-height: 1.1;
+    }
+
+    .metric-label {
+      font-size: 12px;
+      color: rgba(224, 242, 254, 0.6);
+      margin-top: 4px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 28px;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: rgba(224, 242, 254, 0.7);
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      border-radius: 50px;
+      padding: 5px 14px;
+    }
+
+    .footer-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.28);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="scrim"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="./index.html">Home</a>
+      <a href="./projects.html" class="active">Projects</a>
+      <a href="./thesis.html">MIT Thesis</a>
+    </div>
+  </nav>
+
+  <div class="page">
+    <a class="back" href="./projects.html">← Back to Projects</a>
+
+    <h1>Address Validation at Checkout</h1>
+    <p class="meta">Chewy · Product Manager Technical, Fulfillment &amp; Transportation</p>
+
+    <div class="tag-row">
+      <span class="tag">Customer Experience</span>
+      <span class="tag">A/B Testing</span>
+      <span class="tag">Marketplace Tradeoffs</span>
+      <span class="tag">Data-Driven</span>
+    </div>
+
+    <h2>The Challenge</h2>
+    <p>Chewy's customers skew older and deeply attached to their pets. When orders arrive late or not at all, it's personal. I noticed a pattern in CX call data: customers weren't just complaining about late deliveries. The root cause was wrong or ambiguous addresses entered at checkout.</p>
+    <p>I pulled the data and ran a batch validation against Melissa Data's address database. The problem was 3-4x bigger than direct complaints suggested. Thousands of addresses per day were incorrect or incomplete, silently causing mis-deliveries, re-ships, and customer churn.</p>
+
+    <h2>The Approach</h2>
+    <p>The obvious solution was real-time address validation at checkout. The non-obvious part was the politics: the checkout team owned conversion rate. Adding any friction to checkout was a direct threat to their metrics. They pushed back hard.</p>
+    <p>I empathized with their position and proposed an A/B test with hard guardrails: we would measure checkout completion rate and latency alongside mis-delivery rate, cost, and customer sentiment. If conversion regressed beyond an agreed threshold, we'd kill it.</p>
+    <p>I integrated Melissa Data's real-time API (&lt;500ms latency) into the checkout flow for the treatment group. For measurement, I built three pillars: system metrics (latency, availability), structured feedback (CX reps + 50 customer interviews every two weeks during the test), and outcome tracking (did corrected addresses actually get delivered correctly).</p>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-value">$20M</div>
+        <div class="metric-label">Revenue impact (retention)</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">50%</div>
+        <div class="metric-label">Mis-deliveries reduced</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">0%</div>
+        <div class="metric-label">Conversion regression</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">1K+/day</div>
+        <div class="metric-label">Addresses corrected</div>
+      </div>
+    </div>
+
+    <h2>Why It Mattered</h2>
+    <p>The test showed zero conversion regression. Mis-deliveries dropped sharply. The $2M in direct mis-delivery costs disappeared, and the downstream retention impact was $20M annualized. The feature is still live on Chewy today.</p>
+    <p>This case study is about navigating a two-sided tradeoff: improving one dimension of the experience (delivery accuracy) without regressing another (checkout conversion). The key was not arguing about hypotheticals, but designing a rigorous test that let the data decide.</p>
+
+    <p class="footer-note"><span id="gc-count">—</span> views</p>
+  </div>
+  <script>
+    fetch('https://sabbynagi.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+      .then(r => r.json()).then(d => { document.getElementById('gc-count').textContent = d.count; }).catch(() => {});
+  </script>
+  <script data-goatcounter="https://sabbynagi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

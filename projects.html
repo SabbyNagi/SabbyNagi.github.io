@@ -144,6 +144,17 @@
       color: rgba(224, 242, 254, 0.8);
     }
 
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(224, 242, 254, 0.45);
+      margin-bottom: 16px;
+      margin-top: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
     .footer-note {
       font-size: 12px;
       color: rgba(255,255,255,0.28);
@@ -165,7 +176,35 @@
 
   <div class="page">
     <h1>Projects</h1>
-    <p class="subtitle">Things I've built outside of work.</p>
+    <p class="subtitle">Product leadership portfolio and side projects.</p>
+
+    <p class="section-label">Product Portfolio</p>
+
+    <a class="project-card" href="./case-transportation.html">
+      <div class="card-body" style="padding-top: 24px;">
+        <div class="card-label">Amazon · 0→1 Marketplace Product</div>
+        <div class="card-title">Transportation Request Workflow</div>
+        <p class="card-desc">Designed a capacity-matching workflow for 1M+ sellers shipping 20M+ units/day. Improved on-time delivery from 67% to 85% and acquired 20 Tier-1 sellers. $347M P&L impact.</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="./case-reschedule.html">
+      <div class="card-body" style="padding-top: 24px;">
+        <div class="card-label">Amazon · ML + Operations</div>
+        <div class="card-title">Reschedule Optimization &amp; ML Recommender</div>
+        <p class="card-desc">Eliminated blind reschedules with a handshake workflow and shipped an ML appointment recommender. On-time delivery jumped from 75% to 98%. $160M combined benefits.</p>
+      </div>
+    </a>
+
+    <a class="project-card" href="./case-address.html">
+      <div class="card-body" style="padding-top: 24px;">
+        <div class="card-label">Chewy · Customer Experience + A/B Testing</div>
+        <div class="card-title">Address Validation at Checkout</div>
+        <p class="card-desc">Integrated real-time address validation at checkout without regressing conversion. Reduced mis-deliveries 50%, eliminated $2M in costs, $20M revenue impact from retention.</p>
+      </div>
+    </a>
+
+    <p class="section-label">Side Projects</p>
 
     <a class="project-card" href="https://rewardwise-app-v2.vercel.app/" target="_blank">
       <div class="card-body" style="padding-top: 24px;">
