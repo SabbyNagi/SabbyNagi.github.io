@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — Sabby Singh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      padding: 16px 24px;
+    }
+
+    .nav-inner {
+      display: flex;
+      gap: 4px;
+      background: rgba(5, 20, 55, 0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      padding: 6px;
+    }
+
+    .nav a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav a:hover { color: #ffffff; background: rgba(255,255,255,0.08); }
+    .nav a.active { color: #ffffff; background: rgba(52,211,153,0.18); }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #fed7aa, #a5f3fc, #22d3ee);
+      position: relative;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    .scrim {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 20, 55, 0.38);
+      z-index: 1;
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+    }
+
+    h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 48px;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .resume-container {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    }
+
+    .resume-container iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+      display: block;
+    }
+
+    .blur-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 85%;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 20, 55, 0.0) 0%,
+        rgba(5, 20, 55, 0.3) 10%,
+        rgba(5, 20, 55, 0.6) 40%,
+        rgba(5, 20, 55, 0.85) 100%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .cta-box {
+      pointer-events: auto;
+      text-align: center;
+      padding: 32px;
+      margin-top: 80px;
+    }
+
+    .cta-box p {
+      font-size: 16px;
+      color: rgba(224, 242, 254, 0.9);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #34d399;
+      color: #051437;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: #6ee7b7;
+      transform: translateY(-1px);
+      color: #051437;
+      text-decoration: none;
+    }
+
+    .footer-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.28);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="scrim"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="./index.html">Home</a>
+      <a href="./projects.html">Projects</a>
+      <a href="./thesis.html">MIT Thesis</a>
+    </div>
+  </nav>
+
+  <div class="page">
+    <h1>Resume</h1>
+
+    <div class="resume-container">
+      <iframe src="./SABBY_Singh_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+      <div class="blur-overlay">
+        <div class="cta-box">
+          <p>Want the full resume?<br>Let's connect.</p>
+          <a class="cta-btn" href="https://www.linkedin.com/in/sarabjitnagi/" target="_blank">Reach out on LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer-note"><span id="gc-count">—</span> views</p>
+  </div>
+  <script>
+    fetch('https://sabbynagi.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+      .then(r => r.json()).then(d => { document.getElementById('gc-count').textContent = d.count; }).catch(() => {});
+  </script>
+  <script data-goatcounter="https://sabbynagi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
