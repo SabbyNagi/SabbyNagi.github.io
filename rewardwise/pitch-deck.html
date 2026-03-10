@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RewardWise — Pitch Deck</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      padding: 16px 24px;
+    }
+
+    .nav-inner {
+      display: flex;
+      gap: 4px;
+      background: rgba(5, 20, 55, 0.75);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      padding: 6px;
+    }
+
+    .nav a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 400;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav a:hover { color: #ffffff; background: rgba(255,255,255,0.08); }
+
+    .header {
+      padding: 100px 24px 32px;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .header h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 48px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      font-size: 15px;
+      color: rgba(226, 232, 240, 0.6);
+      line-height: 1.6;
+    }
+
+    .header .tag {
+      display: inline-block;
+      background: rgba(52,211,153,0.12);
+      border: 1px solid rgba(52,211,153,0.25);
+      color: #34d399;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .pdf-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+    }
+
+    .pdf-container iframe {
+      width: 100%;
+      height: 75vh;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      background: #1e293b;
+    }
+
+    .actions {
+      text-align: center;
+      padding: 16px 24px 60px;
+    }
+
+    .actions a {
+      display: inline-block;
+      padding: 10px 28px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .actions .primary {
+      background: #0d9488;
+      color: white;
+      margin-right: 12px;
+    }
+
+    .actions .primary:hover { background: #0f766e; }
+
+    .actions .secondary {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.7);
+    }
+
+    .actions .secondary:hover {
+      background: rgba(255,255,255,0.12);
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../thesis.html">MIT Thesis</a>
+    </div>
+  </nav>
+
+  <div class="header">
+    <span class="tag">Fintech × Travel Tech</span>
+    <h1>RewardWise Pitch Deck</h1>
+    <p>AI-powered wallet optimizer that turns your scattered points, miles, and cash into one clear verdict — the smartest way to book any trip.</p>
+  </div>
+
+  <div class="pdf-container">
+    <iframe src="../RewardWise_VC_Pitch.pdf" title="RewardWise Pitch Deck"></iframe>
+  </div>
+
+  <div class="actions">
+    <a class="primary" href="../RewardWise_VC_Pitch.pdf" target="_blank">Download PDF</a>
+    <a class="secondary" href="https://reward-wise.vercel.app/" target="_blank">Try RewardWise</a>
+  </div>
+</body>
+</html>
