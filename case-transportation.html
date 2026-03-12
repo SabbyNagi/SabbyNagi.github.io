@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Transportation Request Workflow — Sabby Singh</title>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -22,12 +22,20 @@
     .nav-inner {
       display: flex;
       gap: 4px;
+      background: rgba(5, 20, 55, 0);
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      border: 1px solid rgba(255,255,255,0);
+      border-radius: 50px;
+      padding: 6px;
+      transition: all 0.4s ease;
+    }
+
+    .nav-inner.scrolled {
       background: rgba(5, 20, 55, 0.55);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 50px;
-      padding: 6px;
+      border-color: rgba(255,255,255,0.1);
     }
 
     .nav a {
@@ -59,6 +67,14 @@
       background-position: center 40%;
       opacity: 0.6;
       z-index: 0;
+    }
+
+    .bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(52, 211, 153, 0.08) 0%, transparent 50%, rgba(165, 243, 252, 0.06) 100%);
+      mix-blend-mode: screen;
     }
 
     .scrim {
@@ -116,6 +132,15 @@
       color: #34d399;
       margin-top: 36px;
       margin-bottom: 14px;
+    }
+
+    h2::before {
+      content: '// ';
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 400;
+      opacity: 0.4;
+      vertical-align: middle;
     }
 
     .metrics {
@@ -343,6 +368,12 @@
       <span id="gc-count">—</span> views · © 2026 Sabby Singh. Built with Claude Code.
     </div>
   </footer>
+  <script>
+    const ni = document.querySelector('.nav-inner');
+    const onScroll = () => ni.classList.toggle('scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
   <script>
     fetch('https://sabbynagi.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
       .then(r => r.json()).then(d => { document.getElementById('gc-count').textContent = d.count; }).catch(() => {});

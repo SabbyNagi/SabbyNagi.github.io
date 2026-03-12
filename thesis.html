@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MIT Thesis — Sabby Singh</title>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -22,12 +22,20 @@
     .nav-inner {
       display: flex;
       gap: 4px;
+      background: rgba(5, 20, 55, 0);
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      border: 1px solid rgba(255,255,255,0);
+      border-radius: 50px;
+      padding: 6px;
+      transition: all 0.4s ease;
+    }
+
+    .nav-inner.scrolled {
       background: rgba(5, 20, 55, 0.55);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 50px;
-      padding: 6px;
+      border-color: rgba(255,255,255,0.1);
     }
 
     .nav a {
@@ -61,6 +69,14 @@
       z-index: 0;
     }
 
+    .bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(52, 211, 153, 0.08) 0%, transparent 50%, rgba(165, 243, 252, 0.06) 100%);
+      mix-blend-mode: screen;
+    }
+
     .scrim {
       position: fixed;
       inset: 0;
@@ -77,6 +93,7 @@
     }
 
     .label {
+      font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -120,6 +137,7 @@
     }
 
     .section-label {
+      font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -262,11 +280,11 @@
       <div class="meta-row">Program: <span>MIT System Design and Management (SDM)</span></div>
     </div>
 
-    <div class="section-label">Abstract</div>
+    <div class="section-label">// Abstract</div>
     <p>The business of selling fresh food to individual customers on an ecommerce platform is expected to be a $40 billion USD industry by 2023. The online marketplace faces various challenges — low profit margins, changing consumer habits, the onerous task of managing customer and delivery experience, and massive operational scale.</p>
     <p>What can emerging or established fresh food ecommerce platforms learn from the Walmarts, Amazons, Alibabas, and JDs of the world? This thesis introduces and assesses the online grocery space in the US and China, evaluating platforms through the lens of platform thinking and growth strategy. It concludes by examining emergent trends, including the black swan impact of Covid-19 on the industry.</p>
 
-    <div class="section-label">Topics</div>
+    <div class="section-label">// Topics</div>
     <div class="topics">
       <span class="topic">Platform thinking</span>
       <span class="topic">Online grocery</span>
@@ -313,6 +331,12 @@
       <span id="gc-count">—</span> views · © 2026 Sabby Singh. Built with Claude Code.
     </div>
   </footer>
+  <script>
+    const ni = document.querySelector('.nav-inner');
+    const onScroll = () => ni.classList.toggle('scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
   <script>
     fetch('https://sabbynagi.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
       .then(r => r.json()).then(d => { document.getElementById('gc-count').textContent = d.count; }).catch(() => {});
