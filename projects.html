@@ -195,6 +195,25 @@
       color: rgba(224, 242, 254, 0.8);
     }
 
+    .project-card.featured {
+      border-color: rgba(52,211,153,0.45);
+      background: rgba(5, 20, 55, 0.55);
+    }
+    .project-card.featured:hover { border-color: rgba(52,211,153,0.75); }
+    .featured-flag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #34d399;
+      background: rgba(52,211,153,0.12);
+      border: 1px solid rgba(52,211,153,0.3);
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-bottom: 10px;
+    }
+
     /* ── Footer ── */
     .site-footer {
       position: relative;
@@ -306,6 +325,15 @@
     </div>
 
     <div id="professional" class="tab-content active">
+      <a class="project-card featured" href="./portfolio.html">
+        <div class="card-body" style="padding-top: 24px;">
+          <span class="featured-flag">Featured · Portfolio one-pager</span>
+          <div class="card-label">Amazon · Chewy · Selected case studies</div>
+          <div class="card-title">Inbound, first-mile &amp; delivery experience — built end-to-end</div>
+          <p class="card-desc">Three platforms that span the merchant → carrier → customer arc: IBDX (week → &lt;24h inbound cycle), FRD (capacity matched to demand across 4 modes), and WIZMO (carrier signals → unified customer timeline). Built diagrams, KPIs, and outcomes in a single scan-friendly read.</p>
+        </div>
+      </a>
+
       <a class="project-card" href="./case-wizmo.html">
         <div class="card-body" style="padding-top: 24px;">
           <div class="card-label">Chewy · 0→1 Consumer Product</div>
