@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WIZMO — Unified Delivery Experience — Sabby Singh</title>
+  <title>Inbound Delivery Experience (IBDX) — Sabby Singh</title>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@300;400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,18 +33,21 @@
     .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 8px; }
     .tag { font-size: 12px; color: rgba(224, 242, 254, 0.75); background: rgba(52, 211, 153, 0.12); border: 1px solid rgba(52, 211, 153, 0.25); border-radius: 50px; padding: 5px 14px; }
 
+    /* Numbered case lists (Gap / As a result) */
     ol.case-list { list-style: none; counter-reset: caseitem; margin: 18px 0 8px; padding-left: 0; }
     ol.case-list li { counter-increment: caseitem; position: relative; padding-left: 36px; margin-bottom: 14px; font-size: 14.5px; line-height: 1.72; color: rgba(224, 242, 254, 0.88); }
     ol.case-list li::before { content: counter(caseitem, decimal-leading-zero); position: absolute; left: 0; top: 1px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #34d399; opacity: 0.75; }
     ol.case-list li b { color: #ffffff; font-weight: 500; }
     ol.results li .n { color: #34d399; font-weight: 500; font-family: 'JetBrains Mono', monospace; font-size: 13.5px; letter-spacing: 0.01em; }
 
+    /* Diagram card (cream paper feel) */
     .diagram { background: #FAF6F0; border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 24px 20px 14px; margin: 22px 0 14px; box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
     .diagram svg { width: 100%; height: auto; display: block; }
     .diagram-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A746A; margin-bottom: 8px; }
     .caption { font-size: 14px; line-height: 1.72; color: rgba(224, 242, 254, 0.85); margin-top: 14px; }
     .caption b { color: #ffffff; font-weight: 500; }
 
+    /* Footer */
     .site-footer { position: relative; z-index: 2; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.1); }
     .footer-inner { max-width: 720px; margin: 0 auto; padding: 48px 24px 24px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
     .footer-heading { font-size: 13px; font-weight: 600; color: #ffffff; letter-spacing: 0.04em; margin-bottom: 16px; }
@@ -74,76 +77,79 @@
   <div class="page">
     <a class="back" href="./projects.html">← Back to Projects</a>
 
-    <h1>A consistent delivery experience across every customer touchpoint.</h1>
-    <p class="meta">Chewy · Customer-facing</p>
+    <h1>A consistent inbound delivery experience — matched to customer demand, across merchants and carriers.</h1>
+    <p class="meta">Amazon · Inbound · Merchant + carrier facing</p>
 
     <div class="tag-row">
-      <span class="tag">Unified event layer</span>
-      <span class="tag">EDD / PDD engine</span>
-      <span class="tag">Weather signals</span>
-      <span class="tag">Address validation</span>
+      <span class="tag">Two-sided marketplace</span>
+      <span class="tag">3PL carrier program</span>
+      <span class="tag">White-glove merchants</span>
+      <span class="tag">Defect attribution</span>
     </div>
 
     <h2>The Gap</h2>
     <ol class="case-list">
-      <li>Carrier scans, warehouse manifests, address quality, and EDD/PDD signals all lived in separate systems.</li>
-      <li><b>Estimated Delivery Date was the customer's promise — and it was wrong.</b> EDD ran on static transit tables, blind to live carrier scans, weather, and capacity, so the date on the order page didn't match what the network would actually do.</li>
-      <li><b>Weather-related disruptions surfaced after the miss</b> — no upstream signal flagged at-risk shipments before the customer called.</li>
-      <li>~2% of orders had invalid addresses — re-routes drove carrier surcharges and a steady stream of <em>"Where is my order?"</em> contacts.</li>
-      <li>Zone-skipping handoff between national and regional carriers was a line-haul blind spot.</li>
+      <li><b>Merchants churning out of the inbound managed-transportation subscription</b> — low on-time pickup and low on-time delivery were driving opt-outs. A multi-billion-dollar SKU-breadth opportunity sat locked: merchants withheld SKUs they didn't trust to the network.</li>
+      <li><b>Defect attribution was a black box</b> — damage, shortage, late, refused: no closed-loop signal told you whether fault sat with the merchant, the carrier, or the warehouse. Disputes ran on phone calls, claims aged into weeks.</li>
+      <li><b>Communication was reactive</b> — disruptions surfaced only when the merchant called in. No proactive alerts, no entry architecture for merchant-side problem management.</li>
+      <li><b>Capacity blindness at scheduling</b> — merchants couldn't see warehouse capacity at appointment; driver check-in and unload dwell sat at hours-to-days against P90 targets of minutes.</li>
+      <li><b>Manifest accuracy below 95%</b> — broken ASN data cascaded into wrong-inventory, mispayments, and chargebacks.</li>
     </ol>
 
     <h2>The Build</h2>
     <div class="diagram">
-      <div class="diagram-label">// WIZMO unified delivery experience</div>
-      <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" aria-label="WIZMO unified delivery experience">
-        <defs>
-          <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-            <path d="M0,0 L10,5 L0,10 z" fill="#1A1A1A" />
-          </marker>
-        </defs>
-        <rect x="10" y="20"  width="100" height="24" fill="#FAF6F0" stroke="#1A1A1A" stroke-width="0.7" />
-        <text x="60" y="36" font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Address validation</text>
-        <rect x="10" y="60"  width="100" height="24" fill="#FAF6F0" stroke="#1A1A1A" stroke-width="0.7" />
-        <text x="60" y="76" font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">EDD / PDD engine</text>
-        <rect x="10" y="100" width="100" height="24" fill="#FAF6F0" stroke="#1A1A1A" stroke-width="0.7" />
-        <text x="60" y="116" font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Weather signals</text>
-        <rect x="10" y="140" width="100" height="24" fill="#FAF6F0" stroke="#1A1A1A" stroke-width="0.7" />
-        <text x="60" y="156" font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Carrier tracking</text>
+      <div class="diagram-label">// IBDX platform architecture</div>
+      <svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" aria-label="Inbound Delivery Experience platform architecture">
+        <g>
+          <rect x="14"  y="20" width="140" height="120" fill="#FAF6F0" stroke="#1A1A1A" stroke-width="0.8" />
+          <text x="84"  y="42" font-family="Caveat" font-size="16" fill="#C75D2C" text-anchor="middle" font-weight="600">Appointment</text>
+          <line x1="30" y1="50" x2="138" y2="50" stroke="#D9D2C4" stroke-width="0.6" />
+          <text x="84"  y="70"  font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Capacity-aware</text>
+          <text x="84"  y="88"  font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">scheduling</text>
+          <text x="84"  y="110" font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Pre-planned</text>
+          <text x="84"  y="128" font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">delivery windows</text>
+        </g>
+        <g>
+          <rect x="170" y="20" width="140" height="120" fill="#FAF6F0" stroke="#1A1A1A" stroke-width="0.8" />
+          <text x="240" y="42" font-family="Caveat" font-size="16" fill="#C75D2C" text-anchor="middle" font-weight="600">Execution</text>
+          <line x1="186" y1="50" x2="294" y2="50" stroke="#D9D2C4" stroke-width="0.6" />
+          <text x="240" y="70"  font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Driver check-in</text>
+          <text x="240" y="88"  font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Trailer dwell mgmt</text>
+          <text x="240" y="110" font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Receive &amp;</text>
+          <text x="240" y="128" font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">manifest accuracy</text>
+        </g>
+        <g>
+          <rect x="326" y="20" width="140" height="120" fill="#FAF6F0" stroke="#1A1A1A" stroke-width="0.8" />
+          <text x="396" y="42" font-family="Caveat" font-size="16" fill="#C75D2C" text-anchor="middle" font-weight="600">Disruption</text>
+          <line x1="342" y1="50" x2="450" y2="50" stroke="#D9D2C4" stroke-width="0.6" />
+          <text x="396" y="70"  font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Auto-reschedule</text>
+          <text x="396" y="88"  font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Damage / shortage</text>
+          <text x="396" y="110" font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Provenance &amp;</text>
+          <text x="396" y="128" font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">claims rails</text>
+        </g>
 
-        <rect x="180" y="60" width="120" height="80" fill="#C75D2C" stroke="#C75D2C" />
-        <text x="240" y="92" font-family="Caveat" font-size="20" fill="#FAF6F0" text-anchor="middle" font-weight="600">WIZMO</text>
-        <text x="240" y="115" font-family="Inter" font-size="10" fill="#FAF6F0" text-anchor="middle">unified event layer</text>
+        <line x1="84"  y1="142" x2="240" y2="172" stroke="#1A1A1A" stroke-width="0.7" />
+        <line x1="240" y1="142" x2="240" y2="172" stroke="#1A1A1A" stroke-width="0.7" />
+        <line x1="396" y1="142" x2="240" y2="172" stroke="#1A1A1A" stroke-width="0.7" />
 
-        <rect x="370" y="20"  width="100" height="24" fill="#FAF6F0" stroke="#1A1A1A" stroke-width="0.7" />
-        <text x="420" y="36" font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Tracking page</text>
-        <rect x="370" y="60"  width="100" height="24" fill="#FAF6F0" stroke="#1A1A1A" stroke-width="0.7" />
-        <text x="420" y="76" font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Proactive email</text>
-        <rect x="370" y="100" width="100" height="24" fill="#FAF6F0" stroke="#1A1A1A" stroke-width="0.7" />
-        <text x="420" y="116" font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Contact center</text>
-        <rect x="370" y="140" width="100" height="24" fill="#FAF6F0" stroke="#1A1A1A" stroke-width="0.7" />
-        <text x="420" y="156" font-family="Inter" font-size="11" fill="#1A1A1A" text-anchor="middle">Order detail</text>
+        <rect x="14" y="148" width="452" height="22" fill="#FAF6F0" stroke="#1A1A1A" stroke-width="0.6" />
+        <text x="240" y="163" font-family="Inter" font-size="10" fill="#1A1A1A" text-anchor="middle">3PL carrier program (scorecards · tiering · volume) · White-glove merchant program</text>
 
-        <line x1="112" y1="32"  x2="178" y2="78"  stroke="#1A1A1A" stroke-width="0.8" marker-end="url(#a1)" />
-        <line x1="112" y1="72"  x2="178" y2="92"  stroke="#1A1A1A" stroke-width="0.8" marker-end="url(#a1)" />
-        <line x1="112" y1="112" x2="178" y2="108" stroke="#1A1A1A" stroke-width="0.8" marker-end="url(#a1)" />
-        <line x1="112" y1="152" x2="178" y2="122" stroke="#1A1A1A" stroke-width="0.8" marker-end="url(#a1)" />
-
-        <line x1="302" y1="78"  x2="368" y2="32"  stroke="#1A1A1A" stroke-width="0.8" marker-end="url(#a1)" />
-        <line x1="302" y1="92"  x2="368" y2="72"  stroke="#1A1A1A" stroke-width="0.8" marker-end="url(#a1)" />
-        <line x1="302" y1="108" x2="368" y2="112" stroke="#1A1A1A" stroke-width="0.8" marker-end="url(#a1)" />
-        <line x1="302" y1="122" x2="368" y2="152" stroke="#1A1A1A" stroke-width="0.8" marker-end="url(#a1)" />
+        <rect x="100" y="178" width="280" height="28" fill="#C75D2C" stroke="#C75D2C" />
+        <text x="240" y="197" font-family="Caveat" font-size="18" fill="#FAF6F0" text-anchor="middle" font-weight="600">One surface — merchants + carriers</text>
       </svg>
+      <div class="diagram-label" style="margin-top:14px; margin-bottom:0;">// caption</div>
     </div>
-    <p class="caption">Built <b>WIZMO</b> as the unified event layer behind every customer surface — address validation, a live <b>EDD/PDD engine</b>, weather-signal ingestion, and carrier tracking writing to one canonical timeline. Every customer surface — tracking page, proactive email, contact center, order detail — reads the same answer. Weather and capacity disruptions now surface upstream and re-quote EDD before the customer hits refresh.</p>
+    <p class="caption">Built the <b>Inbound Delivery Experience (IBDX)</b> platform end-to-end. Three pillars — appointment scheduling, execution &amp; delivery, disruption recovery — sit behind one surface used by both merchants and carriers, matched to downstream customer demand. Stood up a <b>3PL carrier program</b> (scorecards, tiering, performance-tied volume) across the long tail of third-party carriers — including 3P pallet, 3P floor, and Amazon Freight lanes — and a <b>white-glove program</b> for a select set of merchants: concierge onboarding, dedicated capacity, SLA escalation lane.</p>
 
     <h2>As a Result</h2>
     <ol class="case-list results">
-      <li><span class="n">↑X pts</span> &nbsp;customer NPS / CSAT — EDD accuracy + proactive weather re-quote.</li>
-      <li><span class="n">↑X%</span> &nbsp;EDD accuracy — live carrier, capacity, weather signals replaced static tables.</li>
-      <li><span class="n">↑3%</span> &nbsp;on-time delivery — order-entry address validation caught bad shipments pre-carrier.</li>
-      <li><span class="n">↓60%</span> &nbsp;WIZMO contact volume — one timeline replaced cross-carrier reconciliation.</li>
-      <li><span class="n">Weather flags</span> &nbsp;moved from post-miss to pre-miss — at-risk shipments caught before EDD broke.</li>
+      <li><span class="n">~1 wk → &lt;24h</span> &nbsp;cycle time, inventory setup → customer delivery.</li>
+      <li><span class="n">$X B</span> &nbsp;merchant revenue (2-yr) — retention + SKU-breadth unlock.</li>
+      <li><span class="n">+6.2%</span> &nbsp;on-time arrival, lift to on-time pickup.</li>
+      <li><span class="n">95%</span> &nbsp;manifest accuracy — ASN chargebacks closed.</li>
+      <li><span class="n">−49% / −34% / −30%</span> &nbsp;P90 live-unload (1P / 3P pallet / 3P floor).</li>
+      <li><span class="n">−5.7%</span> &nbsp;Amazon-caused reschedules — defect attribution moved upstream.</li>
     </ol>
 
   </div>
